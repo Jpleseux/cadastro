@@ -1,0 +1,74 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <a href="/cadastro"><button class="btn btn-success">Clique para cadastrar um novo produto</button></a>
+        </div>
+        <div class="col">
+            <a href="/estoque">
+            <button style="float: right;" class="btn btn-success">Acessar estoque</button>
+            </a>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+{{#each produto}}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div style="float: right;" class="col">
+                <h4 class="mb-3 card-tittle">{{nome}}</h4>
+
+                <p style="display: block;" id="text" class="card-text" >Quantidade: {{quantidade}}  {{tipo}}</p>
+                <form action="/valor" method="post">
+                    <input type="hidden" name="id" id="id" value="{{_id}}">
+                    <input class="form-control" type="text" name="quantidade" id="campoentrada" style="display: none;" value="{{quantidade}}">
+                    <button style="display: none;" id="bt" class="btn btn-warning mb-3" type="submit"> Confirmar</button>
+                </form>
+            </div>
+            <div style="float: right;" class="col">
+                <a href="/edit/{{_id}}"><button class="btn btn-secondary mb-4">Editar o produto</button></a>
+                <form action="/deletar" method="post">
+                    <input type="hidden" name="id" id="id" value="{{_id}}">
+                    <button type="submit" class="btn btn-danger">Deletar o produto</button></a>
+                </form>
+            </div>
+            <div>
+    <button class="btn btn-success" id="botao">Alterar valor</button>
+</div>
+
+        </div>
+    </div>
+</div>
+
+{{else}}
+
+<h1>Sem Produtos</h1>
+
+{{/each}}
+
+
+<script>
+const bt = document.getElementById("bt")
+const text = document.getElementById("text")
+const botao = document.getElementById('botao');
+const campoEntrada = document.getElementById('campoentrada');
+
+botao.addEventListener('click', () => {
+
+  if (campoEntrada.style.display === 'none') {
+    bt.style.display = 'block';
+    text.style.display = 'none'
+    campoEntrada.style.display = 'block';
+  } else {
+    text.style.display = 'block'
+    campoEntrada.style.display = 'none';
+    bt.style.display = 'none';
+
+  }
+});
+
+</script>

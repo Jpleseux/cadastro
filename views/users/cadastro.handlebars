@@ -1,0 +1,38 @@
+<h1>Hello Word</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/cadastro" method="post">
+        <label for="produtonome">
+            Coloque o nome do Produto
+        </label>
+        <input class="form-control" type="text" name="prodnome" placeholder="Digite o nome do produto" required>
+        <label for="quant">
+            Digite a quantidade de produtos
+        </label>
+        <input class="form-control" type="number" name="quant" id="quant" placeholder="99999" required>
+
+        <label for="opc">Escolha a opção de unidade</label>
+        <select class="form-control" name="tipo" id="tipo" required>
+            <option value="KG">KG</option>
+            <option value="Unidade(s)">Unidade(s)</option>
+            <option value="Litro(s)">Litro(s)</option>
+        </select>
+        
+
+        <button type="submit" class="mt-4 btn btn-warning">Cadastrar produto</button>
+
+        </form>
+    </div>
+</div>
+</div>
+<div class="container">
+    <div class="m-4 card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <a href="/"><button class="btn btn-success btn-lg btn-block">voltar para a pagina inicial</button></a>
+            </div>
+        </div>
+    </div>
+</div>
